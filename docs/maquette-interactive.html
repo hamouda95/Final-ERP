@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maquette ERP Vélo - Prototype Interactif</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        .mockup-screen { transition: all 0.3s ease; }
+        .active-screen { display: block; }
+        .inactive-screen { display: none; }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto p-8">
+        <div class="text-center mb-8">
+            <h1 class="text-4xl font-bold text-gray-900 mb-2">🚴 Maquette ERP Vélo</h1>
+            <p class="text-gray-600">Cliquez sur les onglets pour naviguer entre les écrans</p>
+        </div>
+
+        <!-- Navigation -->
+        <div class="bg-white rounded-t-xl shadow-lg p-4 flex gap-2">
+            <button onclick="showScreen('login')" class="screen-btn px-6 py-2 rounded-lg font-semibold bg-blue-600 text-white">Connexion</button>
+            <button onclick="showScreen('dashboard')" class="screen-btn px-6 py-2 rounded-lg font-semibold hover:bg-gray-100">Dashboard</button>
+            <button onclick="showScreen('products')" class="screen-btn px-6 py-2 rounded-lg font-semibold hover:bg-gray-100">Produits</button>
+            <button onclick="showScreen('clients')" class="screen-btn px-6 py-2 rounded-lg font-semibold hover:bg-gray-100">Clients</button>
+            <button onclick="showScreen('cart')" class="screen-btn px-6 py-2 rounded-lg font-semibold hover:bg-gray-100">Vente</button>
+        </div>
+
+        <!-- Écrans -->
+        <div class="bg-gray-50 rounded-b-xl shadow-lg p-8">
+            
+            <!-- Écran Connexion -->
+            <div id="login" class="mockup-screen active-screen">
+                <div class="max-w-md mx-auto bg-white rounded-2xl shadow-2xl p-8">
+                    <div class="text-center mb-8">
+                        <div class="inline-flex items-center justify-center w-16 h-16 bg-blue-600 rounded-full mb-4">
+                            <span class="text-3xl">🚴</span>
+                        </div>
+                        <h2 class="text-3xl font-bold text-gray-900">ERP Vélo</h2>
+                        <p class="text-gray-600 mt-2">Connexion à votre espace</p>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                            <input type="email" placeholder="votre@email.com" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Mot de passe</label>
+                            <input type="password" placeholder="••••••••" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        
+                        <div class="flex items-center justify-between">
+                            <a href="#" class="text-sm text-blue-600 hover:text-blue-700 font-medium">Mot de passe oublié ?</a>
+                        </div>
+                        
+                        <button class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700">Se connecter</button>
+                        
+                        <div class="relative my-6">
+                            <div class="absolute inset-0 flex items-center"><div class="w-full border-t border-gray-300"></div></div>
+                            <div class="relative flex justify-center text-sm"><span class="px-2 bg-white text-gray-500">Ou continuer avec</span></div>
+                        </div>
+                        
+                        <button class="w-full flex items-center justify-center gap-2 py-3 border-2 border-gray-300 rounded-lg font-semibold hover:bg-gray-50">
+                            <svg class="w-5 h-5" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+                            Google
+                        </button>
+                        
+                        <p class="text-center text-gray-600 mt-6">Pas encore de compte ? <a href="#" class="text-blue-600 font-semibold">S'inscrire</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Écran Dashboard -->
+            <div id="dashboard" class="mockup-screen inactive-screen">
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">Tableau de bord</h2>
+                
+                <!-- KPIs -->
+                <div class="grid grid-cols-4 gap-6 mb-8">
+                    <div class="bg-white rounded-xl shadow-lg p-6">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-gray-600 text-sm font-medium">Chiffre d'affaires</p>
+                                <p class="text-3xl font-bold text-gray-900 mt-2">45 280 €</p>
+                                <p class="text-sm text-green-600 font-semibold mt-2">+12% vs mois dernier</p>
+                            </div>
+                            <div class="text-4xl">💰</div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-lg p-6">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-gray-600 text-sm font-medium">Commandes</p>
+                                <p class="text-3xl font-bold text-gray-900 mt-2">234</p>
+                                <p class="text-sm text-green-600 font-semibold mt-2">+8% vs mois dernier</p>
+                            </div>
+                            <div class="text-4xl">📦</div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-lg p-6">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-gray-600 text-sm font-medium">Clients</p>
+                                <p class="text-3xl font-bold text-gray-900 mt-2">512</p>
+                                <p class="text-sm text-green-600 font-semibold mt-2">+15% vs mois dernier</p>
+                            </div>
+                            <div class="text-4xl">👥</div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-lg p-6">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-gray-600 text-sm font-medium">Produits</p>
+                                <p class="text-3xl font-bold text-gray-900 mt-2">156</p>
+                                <p class="text-sm text-red-600 font-semibold mt-2">-3% vs mois dernier</p>
+                            </div>
+                            <div class="text-4xl">🚴</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Graphiques -->
+                <div class="grid grid-cols-2 gap-6 mb-6">
+                    <div class="bg-white rounded-xl shadow-lg p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-4">Évolution des ventes</h3>
+                        <div class="h-64 bg-gradient-to-br from-blue-50 to-indigo-100 rounded-lg flex items-center justify-center">
+                            <p class="text-gray-600">Graphique Ligne - Ventes mensuelles</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-lg p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-4">Top 5 produits</h3>
+                        <div class="h-64 bg-gradient-to-br from-green-50 to-emerald-100 rounded-lg flex items-center justify-center">
+                            <p class="text-gray-600">Graphique Barres - Produits populaires</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Alertes stock -->
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">⚠️ Alertes stock</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between p-3 bg-red-50 rounded-lg">
+                            <div><p class="font-medium">VTT Giant Talon 2</p><p class="text-sm text-gray-600">Réf: VTT-002</p></div>
+                            <span class="px-3 py-1 bg-red-100 text-red-800 text-sm font-semibold rounded-full">Stock: 3</span>
+                        </div>
+                        <div class="flex items-center justify-between p-3 bg-red-50 rounded-lg">
+                            <div><p class="font-medium">Casque Specialized</p><p class="text-sm text-gray-600">Réf: ACC-045</p></div>
+                            <span class="px-3 py-1 bg-red-100 text-red-800 text-sm font-semibold rounded-full">Stock: 2</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Écran Produits -->
+            <div id="products" class="mockup-screen inactive-screen">
+                <div class="flex items-center justify-between mb-6">
+                    <div><h2 class="text-3xl font-bold text-gray-900">Produits</h2><p class="text-gray-600">156 produits</p></div>
+                    <button class="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700">+ Ajouter un produit</button>
+                </div>
+                
+                <!-- Barre de recherche -->
+                <div class="bg-white rounded-xl shadow-lg p-4 mb-6">
+                    <div class="flex items-center gap-4">
+                        <input type="text" placeholder="Rechercher par nom, référence ou code-barre..." class="flex-1 px-4 py-3 border border-gray-300 rounded-lg">
+                        <button class="flex items-center gap-2 px-4 py-3 border-2 border-blue-600 text-blue-600 rounded-lg font-semibold">
+                            🔍 Scanner
+                        </button>
+                        <div class="flex bg-gray-100 rounded-lg p-1">
+                            <button class="px-3 py-2 bg-white shadow rounded">Grille</button>
+                            <button class="px-3 py-2 rounded">Liste</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Grille de produits -->
+                <div class="grid grid-cols-4 gap-6">
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition group">
+                        <div class="aspect-square bg-gradient-to-br from-blue-100 to-indigo-200 flex items-center justify-center text-6xl">🚴</div>
+                        <div class="p-4">
+                            <p class="text-sm text-gray-500 mb-1">Réf: VTT-001</p>
+                            <h3 class="text-lg font-bold text-gray-900 mb-2">VTT Scott Scale 970</h3>
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="text-2xl font-bold text-blue-600">1 299 €</span>
+                                <span class="text-sm text-gray-600">Stock: 12</span>
+                            </div>
+                            <div class="flex gap-2">
+                                <button class="flex-1 bg-blue-600 text-white py-2 rounded-lg font-semibold">Modifier</button>
+                                <button class="px-4 py-2 bg-gray-100 rounded-lg">👁️</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                        <div class="aspect-square bg-gradient-to-br from-green-100 to-emerald-200 flex items-center justify-center text-6xl">🚴</div>
+                        <div class="p-4">
+                            <p class="text-sm text-gray-500 mb-1">Réf: VTT-002</p>
+                            <h3 class="text-lg font-bold text-gray-900 mb-2">VTT Giant Talon 2</h3>
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="text-2xl font-bold text-blue-600">899 €</span>
+                                <span class="px-2 py-1 bg-red-100 text-red-800 text-xs font-semibold rounded-full">Stock: 3</span>
+                            </div>
+                            <div class="flex gap-2">
+                                <button class="flex-1 bg-blue-600 text-white py-2 rounded-lg font-semibold">Modifier</button>
+                                <button class="px-4 py-2 bg-gray-100 rounded-lg">👁️</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                        <div class="aspect-square bg-gradient-to-br from-purple-100 to-pink-200 flex items-center justify-center text-6xl">🪖</div>
+                        <div class="p-4">
+                            <p class="text-sm text-gray-500 mb-1">Réf: ACC-045</p>
+                            <h3 class="text-lg font-bold text-gray-900 mb-2">Casque Specialized</h3>
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="text-2xl font-bold text-blue-600">79 €</span>
+                                <span class="text-sm text-gray-600">Stock: 25</span>
+                            </div>
+                            <div class="flex gap-2">
+                                <button class="flex-1 bg-blue-600 text-white py-2 rounded-lg font-semibold">Modifier</button>
+                                <button class="px-4 py-2 bg-gray-100 rounded-lg">👁️</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                        <div class="aspect-square bg-gradient-to-br from-yellow-100 to-orange-200 flex items-center justify-center text-6xl">🔧</div>
+                        <div class="p-4">
+                            <p class="text-sm text-gray-500 mb-1">Réf: SRV-010</p>
+                            <h3 class="text-lg font-bold text-gray-900 mb-2">Révision complète</h3>
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="text-2xl font-bold text-blue-600">120 €</span>
+                                <span class="text-sm text-blue-600">Service</span>
+                            </div>
+                            <div class="flex gap-2">
+                                <button class="flex-1 bg-blue-600 text-white py-2 rounded-lg font-semibold">Modifier</button>
+                                <button class="px-4 py-2 bg-gray-100 rounded-lg">👁️</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Écran Clients -->
+            <div id="clients" class="mockup-screen inactive-screen">
+                <div class="flex items-center justify-between mb-6">
+                    <div><h2 class="text-3xl font-bold text-gray-900">Clients</h2><p class="text-gray-600">512 clients</p></div>
+                    <button class="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700">+ Ajouter un client</button>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-lg p-4 mb-6">
+                    <input type="text" placeholder="Rechercher un client..." class="w-full px-4 py-3 border border-gray-300 rounded-lg">
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Nom</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Email</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Téléphone</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Total achats</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Visites</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200">
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-6 py-4 font-medium">Jean Dupont</td>
+                                <td class="px-6 py-4">jean.dupont@email.com</td>
+                                <td class="px-6 py-4">06 12 34 56 78</td>
+                                <td class="px-6 py-4">2 450 €</td>
+                                <td class="px-6 py-4">8</td>
+                                <td class="px-6 py-4"><button class="text-blue-600 font-medium">Voir</button></td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-6 py-4 font-medium">Marie Martin</td>
+                                <td class="px-6 py-4">marie.martin@email.com</td>
+                                <td class="px-6 py-4">06 98 76 54 32</td>
+                                <td class="px-6 py-4">1 890 €</td>
+                                <td class="px-6 py-4">5</td>
+                                <td class="px-6 py-4"><button class="text-blue-600 font-medium">Voir</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Écran Vente -->
+            <div id="cart" class="mockup-screen inactive-screen">
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">Nouvelle vente</h2>
+                
+                <div class="grid grid-cols-3 gap-6">
+                    <div class="col-span-2 space-y-6">
+                        <!-- Sélection magasin -->
+                        <div class="bg-white rounded-xl shadow-lg p-6">
+                            <h3 class="text-xl font-bold text-gray-900 mb-4">Magasin de vente</h3>
+                            <div class="grid grid-cols-2 gap-4">
+                                <button class="p-4 border-2 border-blue-600 bg-blue-50 text-blue-600 rounded-lg font-semibold">Ville d'Avray</button>
+                                <button class="p-4 border-2 border-gray-200 rounded-lg font-semibold hover:border-gray-300">Garches</button>
+                            </div>
+                        </div>
+                        
+                        <!-- Produits -->
+                        <div class="bg-white rounded-xl shadow-lg p-6">
+                            <h3 class="text-xl font-bold text-gray-900 mb-4">Ajouter des produits</h3>
+                            <input type="text" placeholder="Rechercher un produit..." class="w-full px-4 py-3 border border-gray-300 rounded-lg mb-4">
+                            <div class="max-h-96 overflow-y-auto space-y-2">
+                                <div class="flex items-center justify-between p-3 hover:bg-gray-50 rounded-lg cursor-pointer">
+                                    <div><p class="font-semibold">VTT Scott Scale 970</p><p class="text-sm text-gray-600">Réf: VTT-001 • Stock: 12</p></div>
+                                    <div class="text-right"><p class="font-bold text-blue-600">1 299 €</p><button class="text-sm text-blue-600 font-medium">+ Ajouter</button></div>
+                                </div>
+                                <div class="flex items-center justify-between p-3 hover:bg-gray-50 rounded-lg cursor-pointer">
+                                    <div><p class="font-semibold">VTT Giant Talon 2</p><p class="text-sm text-gray-600">Réf: VTT-002 • Stock: 3</p></div>
+                                    <div class="text-right"><p class="font-bold text-blue-600">899 €</p><button class="text-sm text-blue-600 font-medium">+ Ajouter</button></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <!-- Client -->
+                        <div class="bg-white rounded-xl shadow-lg p-6">
+                            <h3 class="text-xl font-bold text-gray-900 mb-4">Client</h3>
+                            <div class="p-4 bg-blue-50 rounded-lg">
+                                <p class="font-semibold">Jean Dupont</p>
+                                <p class="text-sm text-gray-600">jean.dupont@email.com</p>
+                                <button class="mt-2 text-sm text-red-600 font-medium">Changer de client</button>
+                            </div>
+                        </div>
+                        
+                        <!-- Panier -->
+                        <div class="bg-white rounded-xl shadow-lg p-6">
+                            <h3 class="text-xl font-bold text-gray-900 mb-4">Panier (2)</h3>
+                            <div class="space-y-4 mb-6">
+                                <div class="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
+                                    <div class="flex-1"><p class="font-semibold text-sm">VTT Scott Scale</p><p class="text-xs text-gray-600">1 299 €</p></div>
+                                    <div class="flex items-center gap-2">
+                                        <button class="p-1 bg-white rounded">-</button>
+                                        <span class="w-8 text-center font-semibold">1</span>
+                                        <button class="p-1 bg-white rounded">+</button>
+                                        <button class="p-1 text-red-600">🗑️</button>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
+                                    <div class="flex-1"><p class="font-semibold text-sm">Casque Specialized</p><p class="text-xs text-gray-600">79 €</p></div>
+                                    <div class="flex items-center gap-2">
+                                        <button class="p-1 bg-white rounded">-</button>
+                                        <span class="w-8 text-center font-semibold">2</span>
+                                        <button class="p-1 bg-white rounded">+</button>
+                                        <button class="p-1 text-red-600">🗑️</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="pt-6 border-t space-y-2 mb-6">
+                                <div class="flex justify-between text-sm"><span class="text-gray-600">Sous-total HT</span><span class="font-semibold">1 297,50 €</span></div>
+                                <div class="flex justify-between text-sm"><span class="text-gray-600">TVA</span><span class="font-semibold">259,50 €</span></div>
+                                <div class="flex justify-between text-lg font-bold"><span>Total TTC</span><span class="text-blue-600">1 557,00 €</span></div>
+                            </div>
+                            
+                            <button class="w-full bg-blue-600 text-white py-4 rounded-lg font-bold hover:bg-blue-700">Valider la vente</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showScreen(screenId) {
+            document.querySelectorAll('.mockup-screen').forEach(screen => {
+                screen.classList.remove('active-screen');
+                screen.classList.add('inactive-screen');
+            });
+            document.getElementById(screenId).classList.remove('inactive-screen');
+            document.getElementById(screenId).classList.add('active-screen');
+            
+            document.querySelectorAll('.screen-btn').forEach(btn => {
+                btn.classList.remove('bg-blue-600', 'text-white');
+                btn.classList.add('hover:bg-gray-100');
+            });
+            event.target.classList.add('bg-blue-600', 'text-white');
+            event.target.classList.remove('hover:bg-gray-100');
+        }
+    </script>
+</body>
+</html>
